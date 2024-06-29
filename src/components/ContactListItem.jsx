@@ -1,23 +1,24 @@
+// components/ContactListItem/ContactListItem.jsx
 import React from 'react';
-import css from './ContactListItem.module.css';
 import PropTypes from 'prop-types';
+import css from './ContactListItem.module.css';
 
-const ContactListItem = ({ filteredContact, deleteContact }) => {
+const ContactListItem = ({ contact, deleteContact }) => {
   const handleDelete = () => {
-    deleteContact(filteredContact.id);
+    deleteContact(contact.id);
   };
 
   return (
     <li className={css.contactListItem}>
-      <p>{filteredContact.name}:</p>
-      <p>{filteredContact.number}</p>
+      <p>{contact.name}</p>
+      <p>{contact.number}</p>
       <button onClick={handleDelete}>Delete</button>
     </li>
   );
 };
 
 ContactListItem.propTypes = {
-  filteredContact: PropTypes.shape({
+  contact: PropTypes.shape({
     id: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     number: PropTypes.string.isRequired,
