@@ -1,19 +1,20 @@
+// components/Section/Section.jsx
 import React from 'react';
-import Filter from './Filter'; // Import Filter component
 import PropTypes from 'prop-types';
 
-const Section = ({title, children}) => {
-    return (
-        <section>
-            <h2>{title}</h2>
-            {children}
-        </section>
-    );
+const Section = ({ title, children }) => {
+  return (
+    <section>
+      <h2>{title}</h2>
+      {children}
+    </section>
+  );
 };
 
 Section.propTypes = {
-    title: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Section;
+
