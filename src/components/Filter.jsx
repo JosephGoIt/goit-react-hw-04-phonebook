@@ -1,10 +1,13 @@
-import React from 'react';
+// components/Filter/Filter.jsx
+import React, { useContext } from 'react';
 import css from './Filter.module.css';
-import PropTypes from 'prop-types';
+import { ContactContext } from './context/ContactContext';
 
-const Filter = ({ filter, setFilter }) => {
-  const handleFilterChange = e => {
-    setFilter(e.target.value);
+const Filter = () => {
+  const { filter, handleFilterChange } = useContext(ContactContext);
+
+  const onFilterChange = (e) => {
+    handleFilterChange(e.target.value);
   };
 
   return (
@@ -15,15 +18,10 @@ const Filter = ({ filter, setFilter }) => {
         name="filter"
         placeholder="Search by name"
         value={filter}
-        onChange={handleFilterChange}
+        onChange={onFilterChange}
       />
     </div>
   );
-};
-
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  setFilter: PropTypes.func.isRequired,
 };
 
 export default Filter;

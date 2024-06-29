@@ -4,11 +4,12 @@ import ContactListItem from './ContactListItem';
 import { ContactContext } from './context/ContactContext';
 
 const ContactList = () => {
-  const { contacts, deleteContact } = useContext(ContactContext);
+  const { getFilteredContacts, deleteContact } = useContext(ContactContext);
+  const filteredContacts = getFilteredContacts();
 
   return (
     <ul>
-      {contacts.map(contact => (
+      {filteredContacts.map(contact => (
         <ContactListItem key={contact.id} contact={contact} deleteContact={deleteContact} />
       ))}
     </ul>
@@ -16,3 +17,4 @@ const ContactList = () => {
 };
 
 export default ContactList;
+
