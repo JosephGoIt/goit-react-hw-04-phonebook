@@ -1,7 +1,6 @@
-// components/ContactForm/ContactForm.jsx
 import React, { useState, useContext } from 'react';
 import css from './ContactForm.module.css';
-import { ContactContext } from './context/ContactContext';
+import { ContactContext } from '../components/context/ContactContext';
 
 const ContactForm = () => {
   const { contacts, addContact } = useContext(ContactContext);
